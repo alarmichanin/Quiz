@@ -19,8 +19,9 @@ html, body
 #country
 {
     width: 70%;
-    height: 9%;
+    height: 8%;
     margin-bottom: 1%;
+    margin-top: 1%;
     border: 5px solid lightsalmon;
     transition: 0.5s linear;
 }
@@ -28,8 +29,9 @@ html, body
 #timer
 {
     width: 70%;
-    height: 9%;
+    height: 8%;
     margin-bottom: 1%;
+    margin-top: 1%;
     border: 5px solid lightgreen;
     transition: 0.5s linear;
 }
@@ -37,8 +39,9 @@ html, body
 #flags
 {
     width: 70%;
-    height: 69%;
+    height: 68%;
     margin-bottom: 1%;
+    margin-top: 1%;
     border: 5px solid lightskyblue;
     transition: 0.5s linear;
 
@@ -51,8 +54,9 @@ html, body
 #submit
 {
     width: 70%;
-    height: 9%;
+    height: 8%;
     margin-bottom: 1%;
+    margin-top: 1%;
     border: 5px solid blue;
     transition: 0.5s linear;
 }
