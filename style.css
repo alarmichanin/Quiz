@@ -1,0 +1,83 @@
+html, body
+{
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  overflow:  hidden;
+  transition: 0.5s linear;
+}
+
+#main
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+
+#country
+{
+    width: 70%;
+    height: 9%;
+    margin-bottom: 1%;
+    border: 5px solid lightsalmon;
+    transition: 0.5s linear;
+}
+
+#timer
+{
+    width: 70%;
+    height: 9%;
+    margin-bottom: 1%;
+    border: 5px solid lightgreen;
+    transition: 0.5s linear;
+}
+
+#flags
+{
+    width: 70%;
+    height: 69%;
+    margin-bottom: 1%;
+    border: 5px solid lightskyblue;
+    transition: 0.5s linear;
+
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    flex-wrap: wrap; 
+}
+
+#submit
+{
+    width: 70%;
+    height: 9%;
+    margin-bottom: 1%;
+    border: 5px solid blue;
+    transition: 0.5s linear;
+}
+
+#flag1,#flag2,#flag3,#flag4
+{
+    width: 40%;
+    height: 40%;
+    border: 5px solid red;
+}
+
+@media screen and (max-width: 500px) 
+{
+    #flags
+    {
+        flex-direction: column;
+        flex-wrap: nowrap; 
+    }
+    
+    #flag1,#flag2,#flag3,#flag4
+    {
+        width: 90%;
+        height: 23%;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        border: 5px solid red;
+    }
+}
