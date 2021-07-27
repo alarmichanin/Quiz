@@ -1,3 +1,6 @@
+$.getScript("./countries.js", function(){
+    console.log(array[0])
+    });
 document.addEventListener("DOMContentLoaded",()=>{
     function clock(seconds){
         let inter = setInterval(()=>{

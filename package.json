@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "mysql": "^2.18.1"
+  },
+  "name": "quiz",
+  "description": "",
+  "version": "1.0.0",
+  "main": "sql.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DLineone/Quiz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DLineone/Quiz/issues"
+  },
+  "homepage": "https://github.com/DLineone/Quiz#readme"
+}
