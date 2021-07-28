@@ -5,6 +5,7 @@ html, body
   margin: 0px;
   overflow:  hidden;
   transition: 0.5s linear;
+  background: #50CB93;
 }
 
 #main
@@ -13,7 +14,7 @@ html, body
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;   
+    align-items: center;  
 }
 
 #country
@@ -22,7 +23,7 @@ html, body
     height: 8%;
     margin-bottom: 1%;
     margin-top: 1%;
-    border: 5px solid lightsalmon;
+    /*border: 5px solid lightsalmon;*/
     transition: 0.5s linear;
 
     display: flex;
@@ -30,6 +31,8 @@ html, body
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 250%;
+    color: #54436B;
+    background-color: #71EFA3; 
 }
 
 #timer
@@ -38,15 +41,23 @@ html, body
     height: 8%;
     margin-bottom: 1%;
     margin-top: 1%;
-    border: 5px solid lightgreen;
+    /*border: 5px solid lightgreen;*/
     transition: 0.5s linear;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #71EFA3; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+    color: #54436B;
 }
 
 #flag
 {
     height: 45%;
     width: 45%;
-    border: solid black 2px;
+    /* border: solid black 2px; */
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -57,8 +68,9 @@ html, body
     height: 68%;
     margin-bottom: 1%;
     margin-top: 1%;
-    border: 5px solid lightskyblue;
+    /*border: 5px solid lightskyblue;*/
     transition: 0.5s linear;
+    background-color: #71EFA3; 
 
     display: flex;
     align-items:center;
@@ -72,8 +84,9 @@ html, body
     height: 8%;
     margin-bottom: 1%;
     margin-top: 1%;
-    border: 5px solid blue;
+    /*border: 5px solid blue;*/
     transition: 0.5s linear;
+    background-color: #71EFA3; 
 }
 
 @media screen and (max-width: 500px) 
