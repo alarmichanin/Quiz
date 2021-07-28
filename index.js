@@ -9,7 +9,7 @@ function getRandomFlags()
 
         do 
         {
-            num = getRandomIntInclusive(0, 252);
+            num = getRandomIntInclusive(0, 251);
             
             if(arrUsed == null)
             {
