@@ -1034,7 +1034,7 @@ let mass=[];
 строка для проверки с тем, что есть в глобальном массиве
 */
 let arrInString="AB,AD,AE,AF,AG,AI,AL,AM,AO,AQ,AR,AS,AT,AU,AW,AX,AZ,BA,BB,BD,BE,BF,BG,BH,BI,BJ,BL,BM,BN,BO,BQ,BR,BS,BT,BV,BW,BY,BZ,CA,CC,CD,CF,CG,CH,CI,CK,CL,CM,CN,CO,CR,CU,CV,CW,CX,CY,CZ,DE,DJ,DK,DM,DO,DZ,EC,EE,EG,EH,ER,ES,ET,FI,FJ,FK,FM,FO,FR,GA,GB-ENG,GB-NIR,GB-SCT,GB-WLS,GB,GD,GE,GF,GG,GH,GI,GL,GM,GN,GP,GQ,GR,GS,GT,GU,GW,GY,HK,HM,HN,HR,HT,HU,ID,IE,IL,IM,IN,IO,IQ,IR,IS,IT,JE,JM,JO,JP,KE,KG,KH,KI,KM,KN,KP,KR,KW,KY,KZ,LA,LB,LC,LI,LK,LR,LS,LT,LU,LV,LY,MA,MC,MD,ME,MF,MG,MH,MK,ML,MM,MN,MO,MP,MQ,MR,MS,MT,MU,MV,MW,MX,MY,MZ,NA,NC,NE,NF,NG,NI,NL,NO,NP,NR,NU,NZ,OM,OS,PA,PE,PF,PG,PH,PK,PL,PM,PN,PR,PS,PT,PW,PY,QA,RE,RO,RS,RU,RW,SA,SB,SC,SD,SE,SG,SH,SI,SJ,SK,SL,SM,SN,SO,SR,SS,ST,SV,SX,SY,SZ,TC,TD,TF,TG,TH,TJ,TK,TL,TM,TN,TO,TR,TT,TV,TW,TZ,UA,UG,UM,US,UY,UZ,VA,VC,VE,VG,VI,VN,VU,WF,WS,XK,YE,YT,ZA,ZM,ZW";
-console.log(arrInString.length)
+let strInArr=arrInString.split(",")
 
 /*
 читаем все файлы с папки без типа файла и записываем в массив arr 
@@ -1044,16 +1044,8 @@ fs.readdir(testFolder, (err, files) => {
       arr[index]=file.slice(0,file.indexOf('.')).toUpperCase()
       index++
   });
-  console.log("what's?! "+array[0])
-  arr.forEach(el=>{
-    if(array.indexOf(el)+1)
-        mass.push(el)
-    else
-    console.log("Have no matche: "+el)
 })
-console.log(mass)
-  console.log("Length of arr: "+arr.length)
-})
+
 
 /*
 если элементы совпадают, всё записываеться в новый массив (проверка елементов с глобального массива с папочными)
@@ -1070,10 +1062,23 @@ console.log(mass)
 если элементы совпадают, всё записываеться в новый массив (проверка папочных елементов с массивными)
 */
 
+let arrr= []
 
+array.forEach(e=>{
+    arrr.push(e[0])
+
+})
+strInArr.forEach(el=>{
+    if(arrr.indexOf(el)+1)
+        mass.push(el)
+    else
+    console.log("Have no match: "+el)
+})
 
 console.log("Length of final mass : "+ mass.length)
 console.log("Length of global mass : "+ array.length)
+
+
 
 
 /* 
