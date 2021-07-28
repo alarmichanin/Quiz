@@ -13,10 +13,6 @@
 
     var array = [
         [
-            'Alpha2',
-            'На английском'
-        ],
-        [
             'AB',
             'Abkhazia'
         ],
@@ -239,6 +235,26 @@
         [
             'HK',
             'Hong Kong'
+        ],
+        [
+            'GB-ENG',
+            'United Kingdom Of Great Britain, England country'
+        ],
+        [
+            'GB-NIR',
+            'United Kingdom Of Great Britain, Northern Ireland province'
+        ],
+        [
+            'GB-SCT',
+            'United Kingdom Of Great Britain, Scotland country'
+        ],
+        [
+            'GB-WLS',
+            'United Kingdom Of Great Britain, Wales country'
+        ],
+        [
+            'XK',
+            'Republic of Kosovo'
         ],
         [
             'GD',
