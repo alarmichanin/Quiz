@@ -9,7 +9,7 @@ function getRandomFlags()
 
         do 
         {
-            num = getRandomIntInclusive(0, 251);
+            num = getRandomIntInclusive(0, 255);
             
             if(arrUsed == null)
             {
@@ -28,6 +28,7 @@ function getRandomFlags()
 }
 
 let flags=document.querySelectorAll("#flag")
+let countryName=document.querySelector("#country")
 console.log(flag)
 /*background-image: url("./images/ab.png");*/
 document.addEventListener("DOMContentLoaded",()=>{
@@ -37,13 +38,10 @@ document.addEventListener("DOMContentLoaded",()=>{
             
             for(let i=0;i<4;i++)
             {
-                console.log(`url("./images/${array[temp[i]][0]}.png")`)
-                /*
-                array[temp[i]]
-                 */
                 let name=array[temp[i]][0]
-                console.log(name+"!@!!!")
+                let fullName=array[temp[i]][1]
                 flags[i].style.backgroundImage =`url("./images/${name.toLowerCase()}.png")`
+                countryName.innerHTML=``
             }
             temp.forEach(function(elem)
             {
