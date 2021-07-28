@@ -1044,17 +1044,34 @@ fs.readdir(testFolder, (err, files) => {
       arr[index]=file.slice(0,file.indexOf('.')).toUpperCase()
       index++
   });
-  console.log(arr[0])
-})
-/*
-если элементы совпадают, всё записываеться в новый массив 
-*/
-array.forEach(obj=>{
-    if(arrInString.indexOf(obj[0])+1)
-    mass.push(obj)
+  console.log("what's?! "+array[0])
+  arr.forEach(el=>{
+    if(array.indexOf(el)+1)
+        mass.push(el)
     else
-    console.log("Не совпадает: "+ obj)
+    console.log("Have no matche: "+el)
 })
+console.log(mass)
+  console.log("Length of arr: "+arr.length)
+})
+
+/*
+если элементы совпадают, всё записываеться в новый массив (проверка елементов с глобального массива с папочными)
+*/
+// array.forEach(obj=>{
+//     if(arrInString.indexOf(obj[0])+1)
+//     mass.push(obj)
+//     else
+//     console.log("Не совпадает: "+ obj)
+// })
+
+
+/*
+если элементы совпадают, всё записываеться в новый массив (проверка папочных елементов с массивными)
+*/
+
+
+
 console.log("Length of final mass : "+ mass.length)
 console.log("Length of global mass : "+ array.length)
 
