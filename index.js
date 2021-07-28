@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
         },1000)
     }
-    clock(30) 
+    clock(29) 
 }
 )
 

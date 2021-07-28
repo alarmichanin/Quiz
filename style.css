@@ -60,6 +60,14 @@ html, body
     /* border: solid black 2px; */
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    filter: opacity(50%);
+    transition: 0.2s linear;
+}
+#flag:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    filter: opacity(100%);
 }
 
 #flags
@@ -102,5 +110,9 @@ html, body
         width: 90%;
         height: 23%;
     }
+    #country
+{
+    font-size: 150%;
+}
     
 }
