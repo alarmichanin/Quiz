@@ -41,12 +41,14 @@ document.addEventListener("DOMContentLoaded",()=>{
                 let name=array[temp[i]][0]
                 let fullName=array[temp[i]][1]
                 flags[i].style.backgroundImage =`url("./images/${name.toLowerCase()}.png")`
-                countryName.innerHTML=``
             }
             temp.forEach(function(elem)
             {
                 console.log(array[elem]);
             });
+
+            let elementQuiz = getRandomIntInclusive(0,3);
+            countryName.innerHTML=`${array[temp[elementQuiz]][1]}`
     });
 
     function clock(seconds){

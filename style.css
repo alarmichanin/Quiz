@@ -24,6 +24,12 @@ html, body
     margin-top: 1%;
     border: 5px solid lightsalmon;
     transition: 0.5s linear;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
 }
 
 #timer
