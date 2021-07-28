@@ -64,9 +64,9 @@ html, body
     transition: 0.2s linear;
 }
 #flag:hover{
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
     filter: opacity(100%);
 }
 
@@ -86,7 +86,7 @@ html, body
     flex-wrap: wrap; 
 }
 
-#submit
+#score
 {
     width: 70%;
     height: 8%;
@@ -95,6 +95,13 @@ html, body
     /*border: 5px solid blue;*/
     transition: 0.5s linear;
     background-color: #71EFA3; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #71EFA3; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+    color: #54436B;
 }
 
 @media screen and (max-width: 500px) 

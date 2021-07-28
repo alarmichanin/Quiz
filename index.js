@@ -1,3 +1,8 @@
+/*
+Массив делаем длинной в 20 , потому что каждых 5 ходов флаги , которые были , точно не повторяются 
+getRandomFlags() - делает массив из 4 случайных цифр так, что б они не повторились и потом это всё дело запушиваеться в 2 массива 
+(тот, который на 4 и тот, который очередь)
+*/
 let arrUsed = [];
 arrUsed.length = 20;
 function getRandomFlags()
@@ -27,94 +32,75 @@ function getRandomFlags()
     return mass;
 }
 
+/*
+Начало игры , функция , в которой описана логика игры 
+*/
 let flags=document.querySelectorAll("#flag")
 let countryName=document.querySelector("#country")
 console.log(flag)
-/*background-image: url("./images/ab.png");*/
+function startQuiz(){
+    /*
+вытягиваем с помощью JQuery файл с записаными странами (сокращение + полное название)
+*/
+$.getScript("./countries.js", function(){
+ let temp = getRandomFlags();
+ let elementQuiz = getRandomIntInclusive(0,3);
+ let fullName=array[temp[elementQuiz]][1]
+ countryName.innerHTML=`${fullName}`
+ /*
+ FullName - записано имя переменной , которая выбрана пользователем
+ fullName - записано имя переменной, которая выбрана рандомом
+ */
+ for(let i=0;i<4;i++)
+ {
+     let shortName=array[temp[i]][0]
+     let FullName =array[temp[i]][1]
+     flags[i].addEventListener('click',()=>{
+         if(FullName===fullName)
+         startQuiz()
+         else
+         alert("Нюхай Бебру!")
+     })
+     flags[i].className=`${FullName}`
+     flags[i].style.backgroundImage =`url("./images/${shortName.toLowerCase()}.png")`
+ }
+});
+clock(29) 
+}
+
+
+
+
+
 document.addEventListener("DOMContentLoaded",()=>{
-    $.getScript("./countries.js", function(){
-            let temp = getRandomFlags();
-            console.log(temp)
-            
-            for(let i=0;i<4;i++)
-            {
-                let name=array[temp[i]][0]
-                let fullName=array[temp[i]][1]
-                flags[i].style.backgroundImage =`url("./images/${name.toLowerCase()}.png")`
-            }
-            temp.forEach(function(elem)
-            {
-                console.log(array[elem]);
-            });
-
-            let elementQuiz = getRandomIntInclusive(0,3);
-            countryName.innerHTML=`${array[temp[elementQuiz]][1]}`
-    });
-
-    function clock(seconds){
-        let inter = setInterval(()=>{
-            let main = document.querySelector("#main")
-            let timer = main.querySelector("#timer")
-            timer.innerHTML=seconds
-            console.log(seconds)
-            if(seconds!==0)
-            seconds--
-            else{
-            alert("TIME IS UP")
-            clearInterval(inter)
-        }
-        },1000)
-    }
-    clock(29) 
+    startQuiz()
 }
 )
 
+
+/*
+функция таймера
+*/ 
+function clock(seconds){
+    let inter = setInterval(()=>{
+        let main = document.querySelector("#main")
+        let timer = main.querySelector("#timer")
+        timer.innerHTML=seconds
+        if(seconds!==0)
+        seconds--
+        else{
+        alert("TIME IS UP")
+        clearInterval(inter)
+    }
+    },1000)
+}
+
+/*
+функция выбора рандомного числа 
+*/ 
 function getRandomIntInclusive(min, max) 
 {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
-
-// function getRandomFlag()
-// {
-//     let num;
-//     do
-//     {
-//         if (arrUsed == null)
-//             break;
-//         else
-//         {
-//             foo:
-//             {
-//                 nam = getRandomIntInclusive(0, 256);
-//                 for(let inElem of arrUsed)
-//                 {
-//                     if(inElem == num)
-//                         continue foo;
-//                 }
-//                 arrUsed.push(num);
-//                 break;
-//             }
-//         }
-//     } while(true);
-//     return num;
-// }
-
-// function getFlag()
-// {
-//     for(let i = 0; i < 4; i++)
-//     {
-//         let num = getRandomIntInclusive(0, 256);
-
-//         if(arrUsed.indexOf(num)+1)
-//         {
-//             getFlag();
-//         }
-//         else
-//             arrUsed[i] = num;
-
-//     }
-// }
-
-
