@@ -35,13 +35,16 @@ html, body
     border: 5px solid lightgreen;
     transition: 0.5s linear;
 }
-#flag{
-height: 45%;
-width: 45%;
-border: solid black 2px;
-background-repeat: no-repeat;
-background-size: cover
+
+#flag
+{
+    height: 45%;
+    width: 45%;
+    border: solid black 2px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
+
 #flags
 {
     width: 70%;
@@ -67,13 +70,6 @@ background-size: cover
     transition: 0.5s linear;
 }
 
-#flag1,#flag2,#flag3,#flag4
-{
-    width: 40%;
-    height: 40%;
-    border: 5px solid red;
-}
-
 @media screen and (max-width: 500px) 
 {
     #flags
@@ -82,12 +78,10 @@ background-size: cover
         flex-wrap: nowrap; 
     }
     
-    #flag1,#flag2,#flag3,#flag4
+    #flag
     {
         width: 90%;
         height: 23%;
-        margin-top: 1%;
-        margin-bottom: 1%;
-        border: 5px solid red;
     }
+    
 }
