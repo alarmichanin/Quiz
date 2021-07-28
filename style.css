@@ -57,7 +57,7 @@ html, body
 {
     height: 45%;
     width: 45%;
-    /* border: solid black 2px; */
+    border: solid #54436B 5px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     filter: opacity(50%);
