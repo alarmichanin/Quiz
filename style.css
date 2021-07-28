@@ -35,7 +35,13 @@ html, body
     border: 5px solid lightgreen;
     transition: 0.5s linear;
 }
-
+#flag{
+height: 45%;
+width: 45%;
+border: solid black 2px;
+background-repeat: no-repeat;
+background-size: cover
+}
 #flags
 {
     width: 70%;

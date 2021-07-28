@@ -1,6 +1,5 @@
 let arrUsed = [];
 arrUsed.length = 20;
-
 function getRandomFlags()
 {
     let mass = [];
@@ -10,7 +9,7 @@ function getRandomFlags()
 
         do 
         {
-            num = getRandomIntInclusive(0, 256);
+            num = getRandomIntInclusive(0, 252);
             
             if(arrUsed == null)
             {
@@ -28,18 +27,30 @@ function getRandomFlags()
     return mass;
 }
 
-$.getScript("./countries.js", function(){
-        for(let i = 0; i < 5; i++)
-        {
+let flags=document.querySelectorAll("#flag")
+console.log(flag)
+/*background-image: url("./images/ab.png");*/
+document.addEventListener("DOMContentLoaded",()=>{
+    $.getScript("./countries.js", function(){
             let temp = getRandomFlags();
+            console.log(temp)
+            
+            for(let i=0;i<4;i++)
+            {
+                console.log(`url("./images/${array[temp[i]][0]}.png")`)
+                /*
+                array[temp[i]]
+                 */
+                let name=array[temp[i]][0]
+                console.log(name+"!@!!!")
+                flags[i].style.backgroundImage =`url("./images/${name.toLowerCase()}.png")`
+            }
             temp.forEach(function(elem)
             {
                 console.log(array[elem]);
             });
-
-        }
     });
-document.addEventListener("DOMContentLoaded",()=>{
+
     function clock(seconds){
         let inter = setInterval(()=>{
             let main = document.querySelector("#main")
