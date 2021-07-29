@@ -10,7 +10,11 @@
 </head>
 
 <body>
-    <div id="main">
+    <div id="start">
+        <button id="startBtn">START</button>
+        <button id="rules">TO READ THE RULES</button>
+    </div>
+    <div id="main" style="display:none">
         <div id="timer">
             30
         </div>
@@ -27,6 +31,10 @@
         <div id="score">
             0
         </div>
+    </div>
+    <div id="lose" style="display:none">
+        <h1>You lose!</h1>
+        <button id="restart">RESTART</button>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="index.js"></script>
