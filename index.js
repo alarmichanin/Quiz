@@ -38,6 +38,14 @@ function getRandomFlags()
 let flags=document.querySelectorAll("#flag")
 let countryName=document.querySelector("#country")
 let score=0
+/*
+ FullName - записано имя переменной , которая выбрана пользователем
+ fullName - записано имя переменной, которая выбрана рандомом
+ */
+let fullName=''
+let FullName=''
+let scoreHtml=''
+let clockFunc
 function startQuiz(){
     /*
 вытягиваем с помощью JQuery файл с записаными странами (сокращение + полное название)
@@ -45,46 +53,43 @@ function startQuiz(){
 $.getScript("./countries.js", function(){
  let temp = getRandomFlags();
  let elementQuiz = getRandomIntInclusive(0,3);
- let fullName=array[temp[elementQuiz]][1]
- let scoreHtml = document.querySelector("#score")
-
+ scoreHtml = document.querySelector("#score")
+ fullName=array[temp[elementQuiz]][1]
  scoreHtml.innerHTML=score
  countryName.innerHTML=fullName
- /*
- FullName - записано имя переменной , которая выбрана пользователем
- fullName - записано имя переменной, которая выбрана рандомом
- */
-let clockFunc = clock(29) 
+ clockFunc = clock(29) 
  for(let i=0;i<4;i++)
  {
      let shortName=array[temp[i]][0]
-     let FullName =array[temp[i]][1]
-     flags[i].addEventListener('click',()=>{
-         if(FullName===fullName){
-         startQuiz()
-         score++
-         scoreHtml.innerHTML=score
-         clearInterval(clockFunc)
-        }
-         else{
-            startQuiz()
-        score--
-        scoreHtml.innerHTML=score
-        clearInterval(clockFunc)
-        }
-     })
-     flags[i].className=`${FullName}`
+    FullName =array[temp[i]][1]
+     flags[i].className=FullName
      flags[i].style.backgroundImage =`url("./images/${shortName.toLowerCase()}.png")`
  }
 });
 
 }
 
-
-
-
-
 document.addEventListener("DOMContentLoaded",()=>{
+    for(let i=0;i<4;i++){
+    flags[i].addEventListener('click',()=>{
+        if(flags[i].className===fullName){
+            console.log(flags[i].className)
+            console.log(fullName)
+        startQuiz()
+        score++
+        scoreHtml.innerHTML=score
+        clearInterval(clockFunc)
+       }
+        else{
+            console.log(FullName)
+            console.log(fullName)
+           startQuiz()
+       score--
+       scoreHtml.innerHTML=score
+       clearInterval(clockFunc)
+       }
+    })
+}
     startQuiz()
 }
 )
