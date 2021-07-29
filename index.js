@@ -1,5 +1,7 @@
 let main = document.querySelector("#main")
-
+let flags=document.querySelectorAll("#flag")
+let countryName=document.querySelector("#country")
+let score=0
 /*
 Массив делаем длинной в 20 , потому что каждых 5 ходов флаги , которые были , точно не повторяются 
 getRandomFlags() - делает массив из 4 случайных цифр так, что б они не повторились и потом это всё дело запушиваеться в 2 массива 
@@ -37,9 +39,7 @@ function getRandomFlags()
 /*
 Начало игры , функция , в которой описана логика игры 
 */
-let flags=document.querySelectorAll("#flag")
-let countryName=document.querySelector("#country")
-let score=0
+
 /*
  FullName - записано имя переменной , которая выбрана пользователем (но лучше прямо сверять с классом блока)
  fullName - записано имя переменной, которая выбрана рандомом
@@ -74,11 +74,10 @@ $.getScript("./countries.js", function(){
 document.addEventListener("DOMContentLoaded",()=>{
     let startBtn=document.querySelector("#startBtn")
     let start=document.querySelector("#start")
-    console.log(start.innerHTML)
-    console.log(main)
     startBtn.onclick=()=>{
-start.innerHtml=main.innerHTML
+start.innerHTML=main.innerHTML
 start.id=main.id
+
     }
     for(let i=0;i<4;i++){
     flags[i].addEventListener('click',()=>{
