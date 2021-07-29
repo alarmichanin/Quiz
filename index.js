@@ -70,17 +70,54 @@ $.getScript("./countries.js", function(){
 
 document.addEventListener("DOMContentLoaded",()=>{
     let startBtn=document.querySelector("#startBtn")
+    let startBtn1=document.querySelector("#startBtn1")
     let rulesBtn=document.querySelector("#rulesBtn")
     let start=document.querySelector("#start")
     let rules=document.querySelector("#rules")
-     rulesBtn.onclick=()=>{
+    rulesBtn.onclick=()=>{
         let tmp = start.innerHTML
         let tmp2 = start.id; 
         start.innerHTML =rules.innerHTML
         start.id=rules.id
         rules.innerHTML = tmp;
         rules.id = tmp2;
+        startBtn1=document.querySelector("#startBtn1")
+        startBtn1.onclick=()=>{
+            console.log(111)
+            rules=document.querySelector("#rules")
+            main = document.querySelector("#main");
+            let tmp = rules.innerHTML
+            let tmp2 = rules.id; 
+            rules.innerHTML =main.innerHTML
+            rules.id=main.id
+            main.innerHTML = tmp;
+            main.id = tmp2;
+
+            startQuiz()
+            main = document.querySelector("#main");
+            flags=document.querySelectorAll("#flag")
+            countryName=document.querySelector("#country")
+            for(let i=0;i<4;i++){
+                flags[i].addEventListener('click',()=>{
+                    if(flags[i].className===fullName){
+                    startQuiz()
+                    score++
+                    scoreHtml.innerHTML=score
+                    clearInterval(clockFunc)
+                   }
+                    else{
+                       startQuiz()
+                   score--
+                   scoreHtml.innerHTML=score
+                   clearInterval(clockFunc)
+                   }
+                })
+            }
+        
+         }
      }
+     console.log(startBtn1);
+     
     startBtn.onclick=()=>{
         startQuiz()
 
