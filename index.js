@@ -75,27 +75,55 @@ document.addEventListener("DOMContentLoaded",()=>{
     let startBtn=document.querySelector("#startBtn")
     let start=document.querySelector("#start")
     startBtn.onclick=()=>{
-start.innerHTML=main.innerHTML
-start.id=main.id
+        startQuiz()
+
+    let tetemp = start.innerHTML
+    let tetemp2 = start.id; 
+    start.innerHTML =main.innerHTML
+    start.id=main.id
+    main.innerHTML = tetemp;
+    main.id = tetemp2;
+
+    main = document.querySelector("#main");
+    flags=document.querySelectorAll("#flag")
+    countryName=document.querySelector("#country")
+    
+    for(let i=0;i<4;i++){
+        flags[i].addEventListener('click',()=>{
+            if(flags[i].className===fullName){
+            startQuiz()
+            score++
+            scoreHtml.innerHTML=score
+            clearInterval(clockFunc)
+           }
+            else{
+               startQuiz()
+           score--
+           scoreHtml.innerHTML=score
+           clearInterval(clockFunc)
+           }
+        })
+    }
 
     }
-    for(let i=0;i<4;i++){
-    flags[i].addEventListener('click',()=>{
-        if(flags[i].className===fullName){
-        startQuiz()
-        score++
-        scoreHtml.innerHTML=score
-        clearInterval(clockFunc)
-       }
-        else{
-           startQuiz()
-       score--
-       scoreHtml.innerHTML=score
-       clearInterval(clockFunc)
-       }
-    })
-}
-    startQuiz()
+//     for(let i=0;i<4;i++){
+//     flags[i].addEventListener('click',()=>{
+//         if(flags[i].className===fullName){
+//         startQuiz()
+//         score++
+//         scoreHtml.innerHTML=score
+//         clearInterval(clockFunc)
+//        }
+//         else{
+//            startQuiz()
+//        score--
+//        scoreHtml.innerHTML=score
+//        clearInterval(clockFunc)
+//        }
+//     })
+// }
+
+
 }
 )
 
@@ -111,8 +139,17 @@ function clock(seconds){
         seconds--
         else{
         let lose = document.querySelector("#lose")
-        main.style.display="none"
-        lose.style.display="visible"
+        
+         
+        let tetemp = lose.innerHTML
+        let tetemp2 = lose.id; 
+        lose.innerHTML=main.innerHTML
+        lose.id=main.id
+        main.innerHTML = tetemp;
+        main.id = tetemp2;
+        main = document.querySelector("#main");
+
+
         clearInterval(inter)
     }
     },1000)
