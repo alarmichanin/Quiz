@@ -38,9 +38,6 @@ function getRandomFlags()
 
 /*
 Начало игры , функция , в которой описана логика игры 
-*/
-
-/*
  FullName - записано имя переменной , которая выбрана пользователем (но лучше прямо сверять с классом блока)
  fullName - записано имя переменной, которая выбрана рандомом
  */
@@ -73,16 +70,26 @@ $.getScript("./countries.js", function(){
 
 document.addEventListener("DOMContentLoaded",()=>{
     let startBtn=document.querySelector("#startBtn")
+    let rulesBtn=document.querySelector("#rulesBtn")
     let start=document.querySelector("#start")
+    let rules=document.querySelector("#rules")
+     rulesBtn.onclick=()=>{
+        let tmp = start.innerHTML
+        let tmp2 = start.id; 
+        start.innerHTML =rules.innerHTML
+        start.id=rules.id
+        rules.innerHTML = tmp;
+        rules.id = tmp2;
+     }
     startBtn.onclick=()=>{
         startQuiz()
 
-    let tetemp = start.innerHTML
-    let tetemp2 = start.id; 
+    let tmp = start.innerHTML
+    let tmp2 = start.id; 
     start.innerHTML =main.innerHTML
     start.id=main.id
-    main.innerHTML = tetemp;
-    main.id = tetemp2;
+    main.innerHTML = tmp;
+    main.id = tmp2;
 
     main = document.querySelector("#main");
     flags=document.querySelectorAll("#flag")
@@ -106,24 +113,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
 
     }
-//     for(let i=0;i<4;i++){
-//     flags[i].addEventListener('click',()=>{
-//         if(flags[i].className===fullName){
-//         startQuiz()
-//         score++
-//         scoreHtml.innerHTML=score
-//         clearInterval(clockFunc)
-//        }
-//         else{
-//            startQuiz()
-//        score--
-//        scoreHtml.innerHTML=score
-//        clearInterval(clockFunc)
-//        }
-//     })
-// }
-
-
 }
 )
 
@@ -139,17 +128,13 @@ function clock(seconds){
         seconds--
         else{
         let lose = document.querySelector("#lose")
-        
-         
-        let tetemp = lose.innerHTML
-        let tetemp2 = lose.id; 
+        let tmp = lose.innerHTML
+        let tmp2 = lose.id; 
         lose.innerHTML=main.innerHTML
         lose.id=main.id
-        main.innerHTML = tetemp;
-        main.id = tetemp2;
+        main.innerHTML = tmp;
+        main.id = tmp2;
         main = document.querySelector("#main");
-
-
         clearInterval(inter)
     }
     },1000)
