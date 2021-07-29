@@ -1,6 +1,7 @@
 let main = document.querySelector("#main")
 let flags=document.querySelectorAll("#flag")
 let countryName=document.querySelector("#country")
+let lose = document.querySelector("#lose")
 let score=0
 /*
 Массив делаем длинной в 20 , потому что каждых 5 ходов флаги , которые были , точно не повторяются 
@@ -56,7 +57,7 @@ $.getScript("./countries.js", function(){
  fullName=array[temp[elementQuiz]][1]
  scoreHtml.innerHTML=score
  countryName.innerHTML=fullName
- clockFunc = clock(29) 
+ clockFunc = clock(3) 
  for(let i=0;i<4;i++)
  {
      let shortName=array[temp[i]][0]
@@ -164,15 +165,27 @@ function clock(seconds){
         if(seconds!==0)
         seconds--
         else{
-        let lose = document.querySelector("#lose")
+            clearInterval(inter)
         let tmp = lose.innerHTML
         let tmp2 = lose.id; 
         lose.innerHTML=main.innerHTML
         lose.id=main.id
         main.innerHTML = tmp;
         main.id = tmp2;
+
         main = document.querySelector("#main");
-        clearInterval(inter)
+        lose = document.querySelector("#lose")
+        let restartBtn=lose.querySelector("#restartBtn")
+
+        restartBtn.onclick=()=>{
+        let tmp = lose.innerHTML
+        let tmp2 = lose.id; 
+        lose.innerHTML =start.innerHTML
+        lose.id=start.id
+        start.innerHTML = tmp;
+        start.id = tmp2;
+    }
+        
     }
     },1000)
     return inter
