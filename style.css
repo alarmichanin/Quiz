@@ -218,10 +218,6 @@ transition: 0s ease opacity .4s, .2s ease width, .2s ease height .2s;
   transition: 0s ease opacity .4s, .2s ease height .4s, .2s ease width .6s;
 }
 
-.btn:hover 
-{
-  background: rgba(255, 255, 255, .2);
-}
 
 @media screen and (max-width: 500px) 
 {

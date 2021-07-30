@@ -7,7 +7,10 @@ let rules = document.querySelector("#rules")
 let startBtn = document.querySelector("#startBtn")
 let startBtn1 = document.querySelector("#startBtn1")
 let rulesBtn = document.querySelector("#rulesBtn")
+let clockStop = 0
+let globalClockStop = 0
 let score = 0
+
 const startTime = 10
 /*
 Массив делаем длинной в 20 , потому что каждых 5 ходов флаги , которые были , точно не повторяются 
@@ -59,11 +62,12 @@ function startQuiz() {
         let elementQuiz = getRandomIntInclusive(0, 3);
         scoreHtml = document.querySelector("#score")
         fullName = array[temp[elementQuiz]][1]
-        scoreHtml.innerHTML = score
+        scoreHtml.innerHTML = `Your score: ${score}`
         countryName.innerHTML = fullName
         let timer = document.querySelector("#timer")
         timer.innerHTML = startTime
         clockFunc = clock(9)
+        clockStop = clockFunc
         for (let i = 0; i < 4; i++) {
             let shortName = array[temp[i]][0]
             FullName = array[temp[i]][1]
@@ -85,19 +89,21 @@ function changeStartOnMain() {
     main = document.querySelector("#main")
     flags = document.querySelectorAll("#flag")
     countryName = document.querySelector("#country")
+    startGlobal = globalClock(89)
+    globalClockStop = startGlobal
     startQuiz()
     for (let i = 0; i < 4; i++) {
         flags[i].addEventListener('click', () => {
             if (flags[i].className === fullName) {
                 startQuiz()
                 score++
-                scoreHtml.innerHTML = score
+                scoreHtml.innerHTML = `Your score: ${score}`
                 clearInterval(clockFunc)
             }
             else {
                 startQuiz()
                 score--
-                scoreHtml.innerHTML = score
+                scoreHtml.innerHTML = `Your score: ${score}`
                 clearInterval(clockFunc)
             }
         })
@@ -126,7 +132,8 @@ function changeStartOnRules() {
         rules.id = main.id
         main.innerHTML = tmp;
         main.id = tmp2;
-
+        startGlobal = globalClock(89)
+        globalClockStop = startGlobal
         startQuiz()
         main = document.querySelector("#main");
         flags = document.querySelectorAll("#flag")
@@ -136,13 +143,13 @@ function changeStartOnRules() {
                 if (flags[i].className === fullName) {
                     startQuiz()
                     score++
-                    scoreHtml.innerHTML = score
+                    scoreHtml.innerHTML = `Your score: ${score}`
                     clearInterval(clockFunc)
                 }
                 else {
                     startQuiz()
                     score--
-                    scoreHtml.innerHTML = score
+                    scoreHtml.innerHTML = `Your score: ${score}`
                     clearInterval(clockFunc)
                 }
             })
@@ -155,7 +162,7 @@ function changeStartOnRules() {
 // }
 // )
 /*
-функция таймера
+функция таймера на каждый ответ (не общий таймер)
 */
 function clock(seconds) {
     let inter = setInterval(() => {
@@ -166,6 +173,7 @@ function clock(seconds) {
             seconds--
         else {
             clearInterval(inter)
+            clearInterval(globalClockStop)
             lose = document.querySelector("#lose")
             main = document.querySelector("#main");
             let tmp = lose.innerHTML
@@ -190,12 +198,49 @@ function clock(seconds) {
                 start.innerHTML = tmp;
                 start.id = tmp2;
             }
-
         }
     }, 1000)
     return inter
 }
+/*
+таймер общий для всей игры
+*/
+function globalClock(seconds) {
+    let play = setInterval(() => {
+        if (seconds !== 0) {
+            let globalTime = document.querySelector("#globalTime")
+            globalTime.innerHTML = seconds
+            seconds--
+        } else {
+            clearInterval(play)
+            clearInterval(clockStop)
+            main = document.querySelector("#main")
+            lose = document.querySelector("#lose")
+            let tmp = main.innerHTML
+            let tmp2 = main.id;
+            main.innerHTML = lose.innerHTML
+            main.id = lose.id
+            lose.innerHTML = tmp;
+            lose.id = tmp2;
 
+
+            lose = document.querySelector("#lose")
+            let restartBtn = lose.querySelector("#restartBtn")
+            restartBtn.onclick = () => {
+                lose = document.querySelector("#lose")
+                start = document.querySelector("#start")
+                let tmp = lose.innerHTML
+                let tmp2 = lose.id;
+                lose.innerHTML = start.innerHTML
+                lose.id = start.id
+                start.innerHTML = tmp;
+                start.id = tmp2;
+            }
+        }
+
+    }, 1000)
+    return play
+}
 /*
 функция выбора рандомного числа 
 */
