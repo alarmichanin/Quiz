@@ -195,7 +195,7 @@ function checker(sc) {
             start.id = tmp2;
         }
         return true
-    } else if (sc > 1) {
+    } else if (sc > 6) {
         clearInterval(clockFunc)
         clearInterval(globalClockStop)
         main = document.querySelector("#main")
@@ -204,15 +204,15 @@ function checker(sc) {
         let tmp2 = main.id;
         main.innerHTML = win.innerHTML
         main.id = win.id
-        lose.innerHTML = tmp;
-        lose.id = tmp2;
+        win.innerHTML = tmp;
+        win.id = tmp2;
 
 
         win = document.querySelector("#win")
         let restartBtn = win.querySelector("#restartBtn")
         restartBtn.onclick = () => {
             score = 0
-            lose = document.querySelector("#win")
+            win = document.querySelector("#win")
             start = document.querySelector("#start")
             let tmp = win.innerHTML
             let tmp2 = win.id;
