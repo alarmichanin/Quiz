@@ -152,8 +152,33 @@ html, body
   color: #54436B;
 }
 
-#rules h1,h2{
-  align-self:start;
+#globalTime
+{
+  width: 100%;
+  height: 5%;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  font-family: 'Montserrat', sans-serif;
+  color: #54436B;
+  font-size: 250%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#globalTimer
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#globalTimerText
+{
+  font-family: 'Montserrat', sans-serif;
+  color: #5b4d6d;
+  font-size: 250%;
 }
 
 .btn {
