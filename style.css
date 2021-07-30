@@ -1,0 +1,264 @@
+html, body
+{
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  overflow:  hidden;
+  transition: 0.5s linear;
+  background: #50CB93;
+  display: flex;
+  justify-content: center;
+}
+
+#start
+{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+#lose,#win
+{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+#startBtn1
+{
+  align-self: center;
+}
+
+#loseText
+{
+  font-family:  'Montserrat', sans-serif;
+  font-size: 4vh;
+  line-height: 3vh; 
+  color: #54436B;
+}
+
+#main
+{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
+
+#country
+{
+  width: 70%;
+  height: 8%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  /*border: 5px solid lightsalmon;*/
+  transition: 0.5s linear;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:  'Montserrat', sans-serif;
+  font-size: 4vh;
+  line-height: 3vh; 
+  color: #54436B;
+  background-color: #71EFA3; 
+}
+
+#timer
+{
+  width: 70%;
+  height: 8%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  /*border: 5px solid lightgreen;*/
+  transition: 0.5s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #71EFA3; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 250%;
+  color: #54436B;
+}
+
+#flag
+{
+  height: 45%;
+  width: 45%;
+  border: solid #54436B 5px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  filter: opacity(50%);
+  transition: 0.2s linear;
+}
+
+#flag:hover{
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  filter: opacity(100%);
+}
+
+#flags
+{
+  width: 70%;
+  height: 68%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  /*border: 5px solid lightskyblue;*/
+  transition: 0.5s linear;
+  background-color: #71EFA3; 
+
+  display: flex;
+  align-items:center;
+  justify-content:space-around;
+  flex-wrap: wrap; 
+}
+
+#score
+{
+  width: 70%;
+  height: 8%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  /*border: 5px solid blue;*/
+  transition: 0.5s linear;
+  background-color: #71EFA3; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #71EFA3; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 250%;
+  color: #54436B;
+}
+
+#rules{
+  height: 100%;
+  width: 65%;
+  justify-self: center;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  color: #54436B;
+}
+
+#globalTime
+{
+  width: 100%;
+  height: 5%;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  font-family: 'Montserrat', sans-serif;
+  color: #54436B;
+  font-size: 250%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#globalTimer
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#globalTimerText
+{
+  font-family: 'Montserrat', sans-serif;
+  color: #5b4d6d;
+  font-size: 250%;
+}
+
+.btn {
+  width: 25%;
+  text-decoration: none;
+  display: inline-block;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  position: relative;
+  color: white;
+  border: none;
+  /* border: 1px solid rgba(255, 255, 255, .4); */
+  background: none;
+  font-weight: 300;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.btn:before, .btn:after 
+{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  box-sizing: border-box;
+}
+  
+.btn:before 
+{
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
+}
+.btn:after
+{
+top: 0;
+right: 0;
+border-right: 1px solid white;
+border-bottom: 1px solid white;
+transition: 0s ease opacity .4s, .2s ease width, .2s ease height .2s;
+}
+
+.btn:hover:before, 
+.btn:hover:after 
+{
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+}
+  
+.btn:hover:before 
+{
+  transition: 0s ease opacity 0s, .2s ease height, .2s ease width .2s;
+}
+  
+.btn:hover:after 
+{
+  transition: 0s ease opacity .4s, .2s ease height .4s, .2s ease width .6s;
+}
+
+
+@media screen and (max-width: 500px) 
+{
+  #flags
+  {
+    flex-direction: column;
+    flex-wrap: nowrap; 
+  }
+    
+  #flag
+  {
+    width: 90%;
+    height: 23%;
+  }
+  #country
+  {
+    font-size: 150%;
+  }   
+}
