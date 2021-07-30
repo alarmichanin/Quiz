@@ -20,7 +20,7 @@ html, body
   justify-content: center;  
 }
 
-#lose
+#lose,#win
 {
   height: 100%;
   width: 100%;

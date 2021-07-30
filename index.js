@@ -2,6 +2,7 @@ let main = document.querySelector("#main")
 let flags = document.querySelectorAll("#flag")
 let countryName = document.querySelector("#country")
 let lose = document.querySelector("#lose")
+let win = document.querySelector("#win")
 let start = document.querySelector("#start")
 let rules = document.querySelector("#rules")
 let startBtn = document.querySelector("#startBtn")
@@ -98,11 +99,13 @@ function changeStartOnMain() {
                 startQuiz()
                 score++
                 scoreHtml.innerHTML = `Your score: ${score}`
+                checker(score)
                 clearInterval(clockFunc)
             }
             else {
                 startQuiz()
                 score--
+                checker(score)
                 scoreHtml.innerHTML = `Your score: ${score}`
                 clearInterval(clockFunc)
             }
@@ -143,12 +146,14 @@ function changeStartOnRules() {
                 if (flags[i].className === fullName) {
                     startQuiz()
                     score++
+                    checker(score)
                     scoreHtml.innerHTML = `Your score: ${score}`
                     clearInterval(clockFunc)
                 }
                 else {
                     startQuiz()
                     score--
+                    checker(score)
                     scoreHtml.innerHTML = `Your score: ${score}`
                     clearInterval(clockFunc)
                 }
@@ -157,10 +162,68 @@ function changeStartOnRules() {
 
     }
 }
-// document.addEventListener("DOMContentLoaded", () => {
+function checker(sc) {
+    if (sc < -4) {
+        console.log("You lose")
+        clearInterval(clockStop)
+        clearInterval(globalClockStop)
+        main = document.querySelector("#main")
+        lose = document.querySelector("#lose")
+        let tmp = main.innerHTML
+        let tmp2 = main.id;
+        main.innerHTML = lose.innerHTML
+        main.id = lose.id
+        lose.innerHTML = tmp;
+        lose.id = tmp2;
 
-// }
-// )
+
+        lose = document.querySelector("#lose")
+        let restartBtn = lose.querySelector("#restartBtn")
+        restartBtn.onclick = () => {
+            score = 0
+            lose = document.querySelector("#lose")
+            start = document.querySelector("#start")
+            let tmp = lose.innerHTML
+            let tmp2 = lose.id;
+            lose.innerHTML = start.innerHTML
+            lose.id = start.id
+            start.innerHTML = tmp;
+            start.id = tmp2;
+        }
+
+    } else if (sc > 1) {
+        console.log("You win")
+        clearInterval(clockStop)
+        clearInterval(globalClockStop)
+        main = document.querySelector("#main")
+        win = document.querySelector("#win")
+        let tmp = main.innerHTML
+        let tmp2 = main.id;
+        main.innerHTML = win.innerHTML
+        main.id = win.id
+        lose.innerHTML = tmp;
+        lose.id = tmp2;
+
+
+        win = document.querySelector("#win")
+        let restartBtn = win.querySelector("#restartBtn")
+        restartBtn.onclick = () => {
+            score = 0
+            lose = document.querySelector("#win")
+            start = document.querySelector("#start")
+            let tmp = win.innerHTML
+            let tmp2 = win.id;
+            win.innerHTML = start.innerHTML
+            win.id = start.id
+            start.innerHTML = tmp;
+            start.id = tmp2;
+        }
+    }
+}
+document.addEventListener("DOMContentLoaded", () => {
+    checker()
+}
+)
 /*
 функция таймера на каждый ответ (не общий таймер)
 */
@@ -189,6 +252,7 @@ function clock(seconds) {
 
             let restartBtn = lose.querySelector("#restartBtn")
             restartBtn.onclick = () => {
+                score = 0
                 lose = document.querySelector("#lose")
                 start = document.querySelector("#start")
                 let tmp = lose.innerHTML
@@ -227,6 +291,7 @@ function globalClock(seconds) {
             lose = document.querySelector("#lose")
             let restartBtn = lose.querySelector("#restartBtn")
             restartBtn.onclick = () => {
+                score = 0
                 lose = document.querySelector("#lose")
                 start = document.querySelector("#start")
                 let tmp = lose.innerHTML
