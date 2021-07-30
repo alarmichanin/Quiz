@@ -78,6 +78,7 @@ function startQuiz() {
     });
 
 }
+
 function changeStartOnMain() {
     main = document.querySelector("#main")
     start = document.querySelector("#start")
@@ -96,18 +97,20 @@ function changeStartOnMain() {
     for (let i = 0; i < 4; i++) {
         flags[i].addEventListener('click', () => {
             if (flags[i].className === fullName) {
-                startQuiz()
-                score++
-                scoreHtml.innerHTML = `Your score: ${score}`
-                checker(score)
                 clearInterval(clockFunc)
+                score++
+                if (checker(score))
+                    break;
+                startQuiz()
+                scoreHtml.innerHTML = `Your score: ${score}`
             }
             else {
-                startQuiz()
-                score--
-                checker(score)
-                scoreHtml.innerHTML = `Your score: ${score}`
                 clearInterval(clockFunc)
+                score--
+                if (checker(score))
+                    break;
+                startQuiz()
+                scoreHtml.innerHTML = `Your score: ${score}`
             }
         })
     }
@@ -144,18 +147,20 @@ function changeStartOnRules() {
         for (let i = 0; i < 4; i++) {
             flags[i].addEventListener('click', () => {
                 if (flags[i].className === fullName) {
-                    startQuiz()
-                    score++
-                    checker(score)
-                    scoreHtml.innerHTML = `Your score: ${score}`
                     clearInterval(clockFunc)
+                    score++
+                    if (checker(score))
+                        break;
+                    startQuiz()
+                    scoreHtml.innerHTML = `Your score: ${score}`
                 }
                 else {
-                    startQuiz()
-                    score--
-                    checker(score)
-                    scoreHtml.innerHTML = `Your score: ${score}`
                     clearInterval(clockFunc)
+                    score--
+                    if (checker(score))
+                        break;
+                    startQuiz()
+                    scoreHtml.innerHTML = `Your score: ${score}`
                 }
             })
         }
@@ -164,8 +169,7 @@ function changeStartOnRules() {
 }
 function checker(sc) {
     if (sc < -4) {
-        console.log("You lose")
-        clearInterval(clockStop)
+        clearInterval(clockFunc)
         clearInterval(globalClockStop)
         main = document.querySelector("#main")
         lose = document.querySelector("#lose")
@@ -190,10 +194,9 @@ function checker(sc) {
             start.innerHTML = tmp;
             start.id = tmp2;
         }
-
+        return true
     } else if (sc > 1) {
-        console.log("You win")
-        clearInterval(clockStop)
+        clearInterval(clockFunc)
         clearInterval(globalClockStop)
         main = document.querySelector("#main")
         win = document.querySelector("#win")
@@ -218,12 +221,14 @@ function checker(sc) {
             start.innerHTML = tmp;
             start.id = tmp2;
         }
+        return true
     }
+    return false
 }
-document.addEventListener("DOMContentLoaded", () => {
-    checker()
-}
-)
+// document.addEventListener("DOMContentLoaded", () => {
+//     checker(score)
+// }
+// )
 /*
 функция таймера на каждый ответ (не общий таймер)
 */
