@@ -100,7 +100,7 @@ function changeStartOnMain() {
                 clearInterval(clockFunc)
                 score++
                 if (checker(score))
-                    break;
+                    return;
                 startQuiz()
                 scoreHtml.innerHTML = `Your score: ${score}`
             }
@@ -108,7 +108,7 @@ function changeStartOnMain() {
                 clearInterval(clockFunc)
                 score--
                 if (checker(score))
-                    break;
+                    return;
                 startQuiz()
                 scoreHtml.innerHTML = `Your score: ${score}`
             }
@@ -150,7 +150,7 @@ function changeStartOnRules() {
                     clearInterval(clockFunc)
                     score++
                     if (checker(score))
-                        break;
+                        return;
                     startQuiz()
                     scoreHtml.innerHTML = `Your score: ${score}`
                 }
@@ -158,7 +158,7 @@ function changeStartOnRules() {
                     clearInterval(clockFunc)
                     score--
                     if (checker(score))
-                        break;
+                        return;
                     startQuiz()
                     scoreHtml.innerHTML = `Your score: ${score}`
                 }
