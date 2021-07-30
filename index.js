@@ -195,7 +195,7 @@ function checker(sc) {
             start.id = tmp2;
         }
         return true
-    } else if (sc > 6) {
+    } else if (sc > 9) {
         clearInterval(clockFunc)
         clearInterval(globalClockStop)
         main = document.querySelector("#main")
@@ -225,10 +225,6 @@ function checker(sc) {
     }
     return false
 }
-// document.addEventListener("DOMContentLoaded", () => {
-//     checker(score)
-// }
-// )
 /*
 функция таймера на каждый ответ (не общий таймер)
 */
