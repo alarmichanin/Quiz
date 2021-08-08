@@ -42,6 +42,16 @@ function getRandomFlags() {
 
     return mass;
 }
+/*
+Функция для озвучки текста на сайте (разработка для плоховидящих и людей,
+которые страдают дислексией)
+*/
+function speak(text) {
+    const message = new SpeechSynthesisUtterance();
+    message.lang = "en-US";
+    message.text = text;
+    window.speechSynthesis.speak(message);
+}
 
 /*
 Начало игры , функция , в которой описана логика игры 
@@ -94,6 +104,11 @@ function changeStartOnMain() {
     startGlobal = globalClock(89)
     globalClockStop = startGlobal
     startQuiz()
+    /*озвучка названия страны*/
+    const btnSpeak = document.querySelector("#voiceBtn");
+    btnSpeak.addEventListener("click", () => {
+        speak(fullName);
+    });
     for (let i = 0; i < 4; i++) {
         flags[i].addEventListener('click', () => {
             if (flags[i].className === fullName) {
@@ -125,6 +140,13 @@ function changeStartOnRules() {
     start.id = rules.id
     rules.innerHTML = tmp;
     rules.id = tmp2;
+    /*озвучка названия страны*/
+    const btnSpeakRul = document.querySelector("#voiceBtnRul");
+    btnSpeakRul.addEventListener("click", () => {
+        speak(
+            "Hello there! Very glad to see you on our page. 1) When you start the game, you will have only 30 seconds to choose;2) Under the timer you will see the name of the country which flag you have to choose;3) For choosing you will have 4 variants(and only one will be correct);4) For every correct choice you will get 1 point(For win you have to get 10 points);5) For every wrong choice you will get minus 1 point(If you will get minus 5 points, you will lose);Forgot to say (for the whole Quiz you have only 1:30 minutes). P.S. Good luck and have fun! P.P.S. I hope that Danny likes it =)"
+        );
+    });
     /*
     Кнопка старта , которая появляется в правилах
     */
@@ -141,6 +163,11 @@ function changeStartOnRules() {
         startGlobal = globalClock(89)
         globalClockStop = startGlobal
         startQuiz()
+        /*озвучка названия страны*/
+        const btnSpeak = document.querySelector("#voiceBtn");
+        btnSpeak.addEventListener("click", () => {
+            speak(fullName);
+        });
         main = document.querySelector("#main");
         flags = document.querySelectorAll("#flag")
         countryName = document.querySelector("#country")
