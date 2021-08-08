@@ -260,5 +260,41 @@ transition: 0s ease opacity .4s, .2s ease width, .2s ease height .2s;
   #country
   {
     font-size: 150%;
+  }
+  #rules{
+    margin: 5%;
   }   
+  .btn{
+    height: 10%;
+    padding: 0%;
+  }
+  #main{
+    padding: 10px;
+  }
+  #globalTime,#score,#globalTimerText{
+    font-size: 150%;
+  }
+  #flags{
+    height: 60%;
+  }
+}
+#voiceBtn,#voiceBtnRul{
+  display: inline-block;
+  text-decoration: none;
+  color: #54436B;
+  width: 40px;
+  height: 40px;
+  line-height: 10px;
+  border-radius: 50%;
+  border: double 4px #54436B;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  transition: .6s;
+}
+
+#voiceBtn:hover,#voiceBtnRul:hover{
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
