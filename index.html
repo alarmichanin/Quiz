@@ -11,8 +11,19 @@
 
 <body>
     <div id="start">
+
+        <div id="dark">
+            <div class="video-box">
+                 <video preload="auto" autoplay="autoplay" loop="loop" muted="" playsinline="playsinline">
+                    <source src="./video/flags.mp4" type="video/mp4">
+                    <source src="./video/flags.webm" type="video/webm">  
+                </video>
+            </div>
+        </div>
+
         <button id="startBtn" class="btn" onclick="changeStartOnMain()">START</button>
         <button id="rulesBtn" class="btn" onclick="changeStartOnRules()">TO READ THE RULES</button>
+
     </div>
     <div id="main" style="display:none">
         <div id="timer">
